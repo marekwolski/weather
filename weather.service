@@ -1,0 +1,23 @@
+# systemd service file for the Weather Flask application on pioutside
+# this file to be stored as /etc/systemd/system/weather.service
+
+# sudo systemctl daemon-reload  # needed if/when the service file is changed
+# sudo systemctl enable <service-name>   # to start the service after a reboot
+# use the commands below to control the service
+#     sudo systemctl start <service-name>
+#     sudo systemctl stop <service-name>
+#     sudo systemctl restart <service-name>
+#     sudo systemctl status <service-name>
+
+[Unit]
+Description=Weather application presenting weather reports
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/mwpython/weather
+ExecStart=/usr/bin/python3 weather.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
