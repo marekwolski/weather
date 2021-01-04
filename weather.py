@@ -56,13 +56,16 @@ def hello():
 
    templateData = {
       'title' : 'Weather Report',
-      'temp': f"{comp_temp:05.2f}",
-      'pressure': f"{wps:07.2f}",
-      'humidity': f"{whs:05.2f}",
+      'temp': f"{comp_temp:+05.1f}",
+      'pressure': f"{wps:07.1f}",
+      'humidity': f"{whs:05.1f}",
       'time': datetime.now().strftime("%Y-%m-%d %H:%M")
       }
    return render_template('main.html', **templateData)
 
+@app.route("/ping")
+def ping():
+   return "Ping! (" + datetime.now().strftime("%Y-%m-%d %H:%M") + ")"
 
 if __name__ == "__main__":
    app.run(host='0.0.0.0', port=8080, debug=True)
