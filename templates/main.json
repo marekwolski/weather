@@ -1,0 +1,6 @@
+{
+    "temperature": {{temp}},
+    "pressure": {{pressure}},
+    "humidity": {{humidity}},
+    "timestamp": {{time}}
+}

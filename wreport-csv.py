@@ -31,7 +31,7 @@ hs = [bme280.get_humidity()] * 5
 
 # Tuning factor for compensation. Decrease this number to adjust the
 # temperature down, and increase to adjust up
-factor = 2.25
+factor = 1.5
 cpu_temps = [get_cpu_temperature()] * 5
 cpu_temp = get_cpu_temperature()
 # Smooth out with some averaging to decrease jitter
@@ -45,7 +45,8 @@ wps = f"{(sum(ps) / len(ps)):07.2f}"
 whs = f"{(sum(hs) / len(hs)):05.2f}"
 tstamp = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-statsfilepath = os.path.expanduser('~/')
+#statsfilepath = os.path.expanduser('~/')
+statsfilepath = os.path.dirname(__file__) + '/stats/'
 statsfilename = statsfilepath + 'wstats_' + datetime.today().strftime('%Y-%m-%d') + '.csv'
 
 with open(statsfilename, "a") as statsfile:
