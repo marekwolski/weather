@@ -46,7 +46,8 @@ whs = f"{(sum(hs) / len(hs)):05.2f}"
 tstamp = datetime.now().strftime("%Y-%m-%d %H:%M")
 
 #statsfilepath = os.path.expanduser('~/')
-statsfilepath = os.path.dirname(__file__) + '/stats/'
+#statsfilepath = os.path.dirname(__file__) + '/stats/'
+statsfilepath = '/home/pi/mwpython/weather/stats/'
 statsfilename = statsfilepath + 'wstats_' + datetime.today().strftime('%Y-%m-%d') + '.csv'
 
 with open(statsfilename, "a") as statsfile:

@@ -15,8 +15,8 @@ After=network.target
 
 [Service]
 User=pi
-WorkingDirectory=/home/pi/mwpython/weather
-ExecStart=/usr/bin/python3 weather.py
+WorkingDirectory=/home/pi/mwpython/weather/outside
+ExecStart=/usr/bin/python3 weather-flask.py
 Restart=always
 
 [Install]

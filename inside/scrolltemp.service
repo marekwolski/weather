@@ -1,0 +1,23 @@
+# systemd service file for the scrolling temperature display on piinside (RaspPi3)
+# this file to be stored as /etc/systemd/system/scrolltemp.service
+
+# sudo systemctl daemon-reload  # needed if/when the service file is changed
+# sudo systemctl enable <service-name>   # to start the service after a reboot
+# use the commands below to control the service
+#     sudo systemctl start <service-name>
+#     sudo systemctl stop <service-name>
+#     sudo systemctl restart <service-name>
+#     sudo systemctl status <service-name>
+
+[Unit]
+Description=Continuous display of temperature and pressure on Scroll pHat 
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/mwpython/weather/inside
+ExecStart=/usr/bin/python3 scrolltemp.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
